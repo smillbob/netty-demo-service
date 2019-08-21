@@ -59,6 +59,7 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
 			String receiverId = chatMsg.getReceiverId();
 			String senderId = chatMsg.getSenderId();
 			System.out.println("聊天内容:"+msgText);
+			currentChannel.writeAndFlush(new TextWebSocketFrame("收到请求"));
 //			// 保存消息到数据库，并且标记为 未签收
 //			UserService userService = (UserService)SpringUtil.getBean("userServiceImpl");
 //			String msgId = userService.saveMsg(chatMsg);
